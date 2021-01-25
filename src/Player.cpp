@@ -50,14 +50,16 @@ void Player::checkKeyboard(sf::Time dt, sf::Time animDt) {
         m_scale.x = 2.f;
         m_sprite.setScale(m_scale);
 
-        if (animDt.asSeconds() <= ANIMATION_SPEED / 8.f) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{0, 0, TEXTURE_POS_X, 96});
-        if (animDt.asSeconds() > ANIMATION_SPEED / 8.f && animDt.asSeconds() <= 2 * (ANIMATION_SPEED / 8.f)) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{TEXTURE_POS_X, 0, TEXTURE_POS_X, 96});
-        if (animDt.asSeconds() > 2 * (ANIMATION_SPEED / 8.f) && animDt.asSeconds() <= 3 * (ANIMATION_SPEED / 8.f)) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{2 * TEXTURE_POS_X, 0, TEXTURE_POS_X, 96});
-        if (animDt.asSeconds() > 3 * (ANIMATION_SPEED / 8.f) && animDt.asSeconds() <= 4 * (ANIMATION_SPEED / 8.f)) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{3 * TEXTURE_POS_X, 0, TEXTURE_POS_X, 96});
-        if (animDt.asSeconds() > 4 * (ANIMATION_SPEED / 8.f) && animDt.asSeconds() <= 5 * (ANIMATION_SPEED / 8.f)) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{4 * TEXTURE_POS_X, 0, TEXTURE_POS_X, 96});
-        if (animDt.asSeconds() > 5 * (ANIMATION_SPEED / 8.f) && animDt.asSeconds() <= 6 * (ANIMATION_SPEED / 8.f)) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{5 * TEXTURE_POS_X, 0, TEXTURE_POS_X, 96});
-        if (animDt.asSeconds() > 6 * (ANIMATION_SPEED / 8.f) && animDt.asSeconds() <= 7 * (ANIMATION_SPEED / 8.f)) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{6 * TEXTURE_POS_X, 0, TEXTURE_POS_X, 96});
-        if (animDt.asSeconds() > 7 * (ANIMATION_SPEED / 8.f) && animDt.asSeconds() <= 8 * (ANIMATION_SPEED / 8.f)) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{7 * TEXTURE_POS_X, 0, TEXTURE_POS_X, 96});
+        if (m_grounded) {
+            if (animDt.asSeconds() <= ANIMATION_SPEED / 8.f) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{0, 0, TEXTURE_POS_X, 96});
+            if (animDt.asSeconds() > ANIMATION_SPEED / 8.f && animDt.asSeconds() <= 2 * (ANIMATION_SPEED / 8.f)) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{TEXTURE_POS_X, 0, TEXTURE_POS_X, 96});
+            if (animDt.asSeconds() > 2 * (ANIMATION_SPEED / 8.f) && animDt.asSeconds() <= 3 * (ANIMATION_SPEED / 8.f)) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{2 * TEXTURE_POS_X, 0, TEXTURE_POS_X, 96});
+            if (animDt.asSeconds() > 3 * (ANIMATION_SPEED / 8.f) && animDt.asSeconds() <= 4 * (ANIMATION_SPEED / 8.f)) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{3 * TEXTURE_POS_X, 0, TEXTURE_POS_X, 96});
+            if (animDt.asSeconds() > 4 * (ANIMATION_SPEED / 8.f) && animDt.asSeconds() <= 5 * (ANIMATION_SPEED / 8.f)) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{4 * TEXTURE_POS_X, 0, TEXTURE_POS_X, 96});
+            if (animDt.asSeconds() > 5 * (ANIMATION_SPEED / 8.f) && animDt.asSeconds() <= 6 * (ANIMATION_SPEED / 8.f)) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{5 * TEXTURE_POS_X, 0, TEXTURE_POS_X, 96});
+            if (animDt.asSeconds() > 6 * (ANIMATION_SPEED / 8.f) && animDt.asSeconds() <= 7 * (ANIMATION_SPEED / 8.f)) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{6 * TEXTURE_POS_X, 0, TEXTURE_POS_X, 96});
+            if (animDt.asSeconds() > 7 * (ANIMATION_SPEED / 8.f) && animDt.asSeconds() <= 8 * (ANIMATION_SPEED / 8.f)) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{7 * TEXTURE_POS_X, 0, TEXTURE_POS_X, 96});
+        }
     }
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {
@@ -65,15 +67,16 @@ void Player::checkKeyboard(sf::Time dt, sf::Time animDt) {
 
         m_scale.x = -2.f;
         m_sprite.setScale(m_scale);
-
-        if (animDt.asSeconds() <= ANIMATION_SPEED / 8.f) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{0, 0, TEXTURE_POS_X, 96});
-        if (animDt.asSeconds() > ANIMATION_SPEED / 8.f && animDt.asSeconds() <= 2 * (ANIMATION_SPEED / 8.f)) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{TEXTURE_POS_X, 0, TEXTURE_POS_X, 96});
-        if (animDt.asSeconds() > 2 * (ANIMATION_SPEED / 8.f) && animDt.asSeconds() <= 3 * (ANIMATION_SPEED / 8.f)) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{2 * TEXTURE_POS_X, 0, TEXTURE_POS_X, 96});
-        if (animDt.asSeconds() > 3 * (ANIMATION_SPEED / 8.f) && animDt.asSeconds() <= 4 * (ANIMATION_SPEED / 8.f)) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{3 * TEXTURE_POS_X, 0, TEXTURE_POS_X, 96});
-        if (animDt.asSeconds() > 4 * (ANIMATION_SPEED / 8.f) && animDt.asSeconds() <= 5 * (ANIMATION_SPEED / 8.f)) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{4 * TEXTURE_POS_X, 0, TEXTURE_POS_X, 96});
-        if (animDt.asSeconds() > 5 * (ANIMATION_SPEED / 8.f) && animDt.asSeconds() <= 6 * (ANIMATION_SPEED / 8.f)) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{5 * TEXTURE_POS_X, 0, TEXTURE_POS_X, 96});
-        if (animDt.asSeconds() > 6 * (ANIMATION_SPEED / 8.f) && animDt.asSeconds() <= 7 * (ANIMATION_SPEED / 8.f)) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{6 * TEXTURE_POS_X, 0, TEXTURE_POS_X, 96});
-        if (animDt.asSeconds() > 7 * (ANIMATION_SPEED / 8.f) && animDt.asSeconds() <= 8 * (ANIMATION_SPEED / 8.f)) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{7 * TEXTURE_POS_X, 0, TEXTURE_POS_X, 96});
+            if (m_grounded) {
+            if (animDt.asSeconds() <= ANIMATION_SPEED / 8.f) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{0, 0, TEXTURE_POS_X, 96});
+            if (animDt.asSeconds() > ANIMATION_SPEED / 8.f && animDt.asSeconds() <= 2 * (ANIMATION_SPEED / 8.f)) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{TEXTURE_POS_X, 0, TEXTURE_POS_X, 96});
+            if (animDt.asSeconds() > 2 * (ANIMATION_SPEED / 8.f) && animDt.asSeconds() <= 3 * (ANIMATION_SPEED / 8.f)) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{2 * TEXTURE_POS_X, 0, TEXTURE_POS_X, 96});
+            if (animDt.asSeconds() > 3 * (ANIMATION_SPEED / 8.f) && animDt.asSeconds() <= 4 * (ANIMATION_SPEED / 8.f)) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{3 * TEXTURE_POS_X, 0, TEXTURE_POS_X, 96});
+            if (animDt.asSeconds() > 4 * (ANIMATION_SPEED / 8.f) && animDt.asSeconds() <= 5 * (ANIMATION_SPEED / 8.f)) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{4 * TEXTURE_POS_X, 0, TEXTURE_POS_X, 96});
+            if (animDt.asSeconds() > 5 * (ANIMATION_SPEED / 8.f) && animDt.asSeconds() <= 6 * (ANIMATION_SPEED / 8.f)) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{5 * TEXTURE_POS_X, 0, TEXTURE_POS_X, 96});
+            if (animDt.asSeconds() > 6 * (ANIMATION_SPEED / 8.f) && animDt.asSeconds() <= 7 * (ANIMATION_SPEED / 8.f)) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{6 * TEXTURE_POS_X, 0, TEXTURE_POS_X, 96});
+            if (animDt.asSeconds() > 7 * (ANIMATION_SPEED / 8.f) && animDt.asSeconds() <= 8 * (ANIMATION_SPEED / 8.f)) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{7 * TEXTURE_POS_X, 0, TEXTURE_POS_X, 96});
+        }
     }
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
