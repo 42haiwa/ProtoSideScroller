@@ -21,9 +21,10 @@ class Player {
         bool m_spaceKeyReleased;
         int m_jumpCount;
 
-        static constexpr int TEXTURE_POS_X{768 / 8};
-        static constexpr float ANIMATION_SPEED{0.5f};
-        static constexpr float JUMP_SPEED{-400.f};
+        static constexpr auto TEXTURE_POS_X{768 / 8};
+        static constexpr auto ANIMATION_SPEED{0.5f};
+        static constexpr auto JUMP_SPEED{-400.f};
+        static constexpr auto SHOW_HITBOX{false};
 
     public:
         Player(std::string const & path);

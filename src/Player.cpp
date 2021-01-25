@@ -38,7 +38,7 @@ void Player::update(sf::RenderWindow & window) {
 
 void Player::render(sf::RenderWindow & window) const {
     window.draw(m_sprite);
-    window.draw(m_box);
+    if (SHOW_HITBOX) window.draw(m_box);
 }
 
 void Player::checkKeyboard(sf::Time dt, sf::Time animDt) {
