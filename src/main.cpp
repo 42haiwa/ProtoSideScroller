@@ -1,10 +1,12 @@
 #include <SFML/Graphics.hpp>
 #include "Player.h"
+#include "DirtBlock.h"
 #include "constants.h"
 
 int main(void) {
 	sf::RenderWindow window{sf::VideoMode{W_WIDTH, W_HEIGHT}, "window"};
 	auto player = Player{"assets/player/Player.png"};
+	auto dirtBlock = DirtBlock{sf::Vector2f{0, 100}};
 
 	while (window.isOpen()) {
 		sf::Event event{};
@@ -27,6 +29,9 @@ int main(void) {
 		}
 
 		window.clear();
+
+		dirtBlock.update();
+		dirtBlock.render(window);
 
 		player.update(window);
 		player.render(window);

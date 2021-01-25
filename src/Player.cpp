@@ -24,8 +24,8 @@ Player::Player(std::string const & path) {
 }
 
 void Player::update(sf::RenderWindow & window) {
-    // m_view.reset(sf::FloatRect{m_pos.x - (W_WIDTH / 2), 0, W_WIDTH, W_HEIGHT});
-    // window.setView(m_view);
+    m_view.reset(sf::FloatRect{m_pos.x - (W_WIDTH / 2), 0, W_WIDTH, W_HEIGHT});
+    window.setView(m_view);
 
     sf::Time dt = m_clock.restart();
     sf::Time animDt = m_animClock.getElapsedTime();
