@@ -16,6 +16,8 @@ class Player {
         sf::Vector2f m_moveSpeed;
         sf::Vector2f m_scale;
         sf::View m_view;
+        sf::Font m_pseudoFont;
+        sf::Text m_pseudo;
         
         bool m_grounded;
         bool m_spaceKeyReleased;
@@ -32,6 +34,7 @@ class Player {
         void render(sf::RenderWindow & window) const;
         void checkKeyboard(sf::Time dt, sf::Time animDt);
         void applyGravity(sf::Time dt);
+        void updatePseudo();
 };
 
 #endif

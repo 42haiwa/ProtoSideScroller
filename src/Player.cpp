@@ -8,6 +8,8 @@ Player::Player(std::string const & path) {
     m_moveSpeed = sf::Vector2f{400.f, 0.f};
     m_scale = sf::Vector2f{2.f, 2.f};
     m_view = sf::View{};
+    m_pseudoFont = sf::Font{};
+    m_pseudo = sf::Text{};
     m_grounded = false;
     m_spaceKeyReleased = false;
     m_jumpCount = 0;
@@ -21,6 +23,12 @@ Player::Player(std::string const & path) {
     m_sprite.setScale(m_scale);
     m_sprite.setOrigin(sf::Vector2f{m_sprite.getLocalBounds().width / 2, m_sprite.getLocalBounds().height / 2});
     m_box.setOrigin(m_sprite.getOrigin());
+    m_pseudoFont.loadFromFile(ASPACE_LIGHT_FONT);
+    m_pseudo.setFont(m_pseudoFont);
+    m_pseudo.setString("haiwa");
+    m_pseudo.setCharacterSize(20);
+    m_pseudo.setFillColor(sf::Color::White);
+    m_pseudo.setPosition(0, 0);
 }
 
 void Player::update(sf::RenderWindow & window) {
@@ -34,11 +42,13 @@ void Player::update(sf::RenderWindow & window) {
 
     checkKeyboard(dt, animDt);
     applyGravity(dt);
+    updatePseudo();
 }
 
 void Player::render(sf::RenderWindow & window) const {
     window.draw(m_sprite);
     if (SHOW_HITBOX) window.draw(m_box);
+    window.draw(m_pseudo);
 }
 
 void Player::checkKeyboard(sf::Time dt, sf::Time animDt) {
@@ -118,4 +128,8 @@ void Player::applyGravity(sf::Time dt) {
         m_grounded = true;
         m_jumpCount = 0;
     }
+}
+
+void Player::updatePseudo() {
+    m_pseudo.setPosition(m_pos.x - 35, m_pos.y - 70);
 }
