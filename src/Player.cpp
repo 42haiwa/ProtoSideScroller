@@ -110,8 +110,8 @@ void Player::applyGravity(sf::Time dt) {
         m_box.setPosition(m_pos);
     }
 
-    if (m_pos.y > 300.f) {
-        m_pos.y = 300.f;
+    if (m_pos.y > MIN_PLATFORME_Y) {
+        m_pos.y = MIN_PLATFORME_Y;
         m_grounded = true;
         m_jumpCount = 0;
     }
