@@ -77,7 +77,8 @@ void Player::checkKeyboard(sf::Time dt, sf::Time animDt) {
 
         m_scale.x = -2.f;
         m_sprite.setScale(m_scale);
-            if (m_grounded) {
+        
+        if (m_grounded) {
             if (animDt.asSeconds() <= ANIMATION_SPEED / 8.f) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{0, 0, TEXTURE_POS_X, 96});
             if (animDt.asSeconds() > ANIMATION_SPEED / 8.f && animDt.asSeconds() <= 2 * (ANIMATION_SPEED / 8.f)) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{TEXTURE_POS_X, 0, TEXTURE_POS_X, 96});
             if (animDt.asSeconds() > 2 * (ANIMATION_SPEED / 8.f) && animDt.asSeconds() <= 3 * (ANIMATION_SPEED / 8.f)) m_texture.loadFromFile("assets/player/Player.png", sf::IntRect{2 * TEXTURE_POS_X, 0, TEXTURE_POS_X, 96});
